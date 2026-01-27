@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.technic47</groupId>
+        <artifactId>shop-spring-boot-starter</artifactId>
+        <version>1.1.1</version>
+    </parent>
+
+    <artifactId>data-acces-feign</artifactId>
+    <version>1.0.0</version>
+
+    <name>access</name>
+    <description>data-access</description>
+    <url>https://github.com/Technic47/Shop_access_feign</url>
+    <inceptionYear>2025</inceptionYear>
+    <packaging>jar</packaging>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Pavel Kuznetsov</name>
+            <email>technic47@gmail.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/Technic47/Shop_access_feign</connection>
+        <developerConnection>scm:git:git://github.com/Technic47/Shop_access_feign</developerConnection>
+        <url>https://github.com/Technic47/Shop_access_feign</url>
+    </scm>
+
+    <properties>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.technic47</groupId>
+            <artifactId>data-model-dto</artifactId>
+            <version>${data-model-dto.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+        </plugins>
+    </build>
+
+</project>
