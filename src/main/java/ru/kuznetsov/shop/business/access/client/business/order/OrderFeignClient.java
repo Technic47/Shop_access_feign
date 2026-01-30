@@ -11,7 +11,6 @@ import java.util.UUID;
 
 @FeignClient(
         value = "${service.module-name.order}",
-        url = "http://localhost:8761",
         contextId = "Order",
         path = "/order")
 public interface OrderFeignClient extends AbstractFeignClient<OrderDto> {

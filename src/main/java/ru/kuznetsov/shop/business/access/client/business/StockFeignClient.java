@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @FeignClient(
         value = "${service.module-name.stock}",
-        url = "http://localhost:8761",
         path = "/stock")
 public interface StockFeignClient extends AbstractFeignClient<StockDto> {
 

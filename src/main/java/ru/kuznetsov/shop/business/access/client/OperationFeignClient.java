@@ -10,7 +10,6 @@ import java.util.Map;
 
 @FeignClient(
         value = "${service.module-name.operation}",
-        url = "http://localhost:8761",
         path = "/operation")
 public interface OperationFeignClient {
 

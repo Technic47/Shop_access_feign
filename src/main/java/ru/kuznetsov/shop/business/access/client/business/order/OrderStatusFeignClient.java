@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @FeignClient(
         value = "${service.module-name.order}",
-        url = "http://localhost:8761",
         contextId = "OrderStatus",
         path = "/order/status")
 public interface OrderStatusFeignClient extends AbstractFeignClient<OrderStatusDto> {

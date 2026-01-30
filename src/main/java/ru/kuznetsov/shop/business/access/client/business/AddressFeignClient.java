@@ -5,7 +5,6 @@ import ru.kuznetsov.shop.represent.dto.AddressDto;
 
 @FeignClient(
         value = "${service.module-name.address}",
-        url = "http://localhost:8761",
         path = "/address")
 public interface AddressFeignClient extends AbstractFeignClient<AddressDto> {
 }
