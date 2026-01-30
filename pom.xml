@@ -9,13 +9,13 @@
         <version>1.1.2</version>
     </parent>
 
-    <artifactId>data-acces-feign</artifactId>
+    <artifactId>data-access-feign</artifactId>
     <version>1.0.0</version>
 
     <name>access</name>
     <description>data-access</description>
     <url>https://github.com/Technic47/Shop_access_feign</url>
-    <inceptionYear>2025</inceptionYear>
+    <inceptionYear>2026</inceptionYear>
     <packaging>jar</packaging>
 
     <licenses>
@@ -48,7 +48,17 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>${spring-cloud-eurika.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud-openfeign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
             <version>${spring-cloud-openfeign.version}</version>
         </dependency>
 
@@ -56,6 +66,11 @@
             <groupId>io.github.technic47</groupId>
             <artifactId>data-model-dto</artifactId>
             <version>${data-model-dto.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.technic47</groupId>
+            <artifactId>parameter</artifactId>
+            <version>${parameter-access.version}</version>
         </dependency>
     </dependencies>
 
