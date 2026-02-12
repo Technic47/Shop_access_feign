@@ -2,6 +2,8 @@ package ru.kuznetsov.shop.business.access.client.business;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.kuznetsov.shop.represent.dto.ProductCardDto;
 import ru.kuznetsov.shop.represent.dto.ProductDto;
@@ -17,6 +19,28 @@ public interface ProductFeignClient extends AbstractFeignClient<ProductDto> {
 
     @GetMapping
     Collection<ProductDto> getAllByOwnerId(@RequestParam(value = "ownerId") UUID ownerId);
+
+    @PostMapping
+    String createWithOperation(@RequestBody ProductDto entity);
+
+    @PostMapping
+    String createBatchWithOperation(@RequestBody Collection<ProductDto> entities);
+
+    /*
+    Не использовать метод
+     */
+    @Override
+    @Deprecated
+    @PostMapping
+    ProductDto create(ProductDto entity);
+
+    /*
+    Не использовать метод
+    */
+    @Override
+    @Deprecated
+    @PostMapping
+    Collection<ProductDto> createBatch(Collection<ProductDto> entities);
 
     @GetMapping
     Collection<ProductDto> getAllByOwnerIdOrCategoryId(

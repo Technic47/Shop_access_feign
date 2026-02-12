@@ -14,13 +14,13 @@ import java.util.Map;
 public interface OperationFeignClient {
 
     @GetMapping(value = "/{id}/contains")
-    boolean containsOperation(@PathVariable String operationId);
+    boolean containsOperation(@PathVariable String id);
 
     @GetMapping(value = "/{id}")
-    OperationDto getOperation(@PathVariable String operationId);
+    OperationDto getOperation(@PathVariable String id);
 
     @GetMapping(value = "/payload/{id}")
-    List<OperationPayloadDto> getOperationData(@PathVariable String operationId);
+    List<OperationPayloadDto> getOperationData(@PathVariable String id);
 
     @GetMapping(value = "/payload")
     List<OperationPayloadDto> getOperationData(@RequestBody OperationDto operation);
@@ -35,5 +35,5 @@ public interface OperationFeignClient {
     void addOperations(@RequestBody Map<String, Object> requestMap);
 
     @GetMapping(value = "/payload/{id}/wait")
-    List<Long> getEntityIdsByOperationId(@PathVariable String operationId);
+    List<Long> getEntityIdsByOperationId(@PathVariable String id);
 }

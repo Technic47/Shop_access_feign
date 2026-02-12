@@ -2,6 +2,7 @@ package ru.kuznetsov.shop.business.access.service.business;
 
 import org.springframework.stereotype.Service;
 import ru.kuznetsov.shop.business.access.client.business.ProductFeignClient;
+import ru.kuznetsov.shop.represent.contract.OperationContract;
 import ru.kuznetsov.shop.represent.contract.business.ProductContract;
 import ru.kuznetsov.shop.represent.dto.ProductCardDto;
 import ru.kuznetsov.shop.represent.dto.ProductDto;
@@ -13,8 +14,11 @@ import java.util.UUID;
 @Service
 public class ProductFeignContractImpl extends AbstractFeignContractImpl<ProductDto, ProductFeignClient> implements ProductContract {
 
-    public ProductFeignContractImpl(ProductFeignClient client) {
+    private final OperationContract operationService;
+
+    public ProductFeignContractImpl(ProductFeignClient client, OperationContract operationService) {
         super(client);
+        this.operationService = operationService;
     }
 
     @Override
@@ -25,6 +29,24 @@ public class ProductFeignContractImpl extends AbstractFeignContractImpl<ProductD
     @Override
     public Collection<ProductDto> getAllByOwnerIdOrCategoryId(UUID ownerId, Long categoryId) {
         return client.getAllByOwnerIdOrCategoryId(ownerId, categoryId);
+    }
+
+    @Override
+    public ProductDto create(ProductDto entity) {
+        String operationId = client.createWithOperation(entity);
+        Long entityId = operationService.getEntityIdsByOperationId(operationId).get(0);
+
+        return getById(entityId);
+    }
+
+    @Override
+    public Collection<ProductDto> createBatch(Collection<ProductDto> entities) {
+        String operationId = client.createBatchWithOperation(entities);
+
+        return operationService.getEntityIdsByOperationId(operationId)
+                .stream()
+                .map(this::getById)
+                .toList();
     }
 
     @Override
