@@ -23,7 +23,7 @@ public interface ProductFeignClient extends AbstractFeignClient<ProductDto> {
     @PostMapping
     String createWithOperation(@RequestBody ProductDto entity);
 
-    @PostMapping
+    @PostMapping(value = "/batch")
     String createBatchWithOperation(@RequestBody Collection<ProductDto> entities);
 
     /*
@@ -39,7 +39,7 @@ public interface ProductFeignClient extends AbstractFeignClient<ProductDto> {
     */
     @Override
     @Deprecated
-    @PostMapping
+    @PostMapping(value = "/batch")
     Collection<ProductDto> createBatch(Collection<ProductDto> entities);
 
     @GetMapping

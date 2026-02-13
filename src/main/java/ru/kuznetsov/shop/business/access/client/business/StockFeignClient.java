@@ -25,7 +25,7 @@ public interface StockFeignClient extends AbstractFeignClient<StockDto> {
     @PostMapping
     String createWithOperation(@RequestBody StockDto entity);
 
-    @PostMapping
+    @PostMapping(value = "/batch")
     String createBatchWithOperation(@RequestBody Collection<StockDto> entities);
 
     /*
@@ -41,7 +41,7 @@ public interface StockFeignClient extends AbstractFeignClient<StockDto> {
      */
     @Override
     @Deprecated
-    @PostMapping
+    @PostMapping(value = "/batch")
     Collection<StockDto> createBatch(Collection<StockDto> entities);
 
     @GetMapping("/reservation")
