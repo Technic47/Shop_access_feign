@@ -6,11 +6,11 @@
     <parent>
         <groupId>io.github.technic47</groupId>
         <artifactId>shop-spring-boot-starter</artifactId>
-        <version>1.1.9</version>
+        <version>1.1.11</version>
     </parent>
 
     <artifactId>data-access-feign</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <name>access</name>
     <description>data-access</description>

@@ -56,19 +56,19 @@ public interface ProductFeignClient extends AbstractFeignClient<ProductDto> {
 
     @GetMapping("/card/page")
     ProductCardPage getProductCardDtoPageable(
-            @RequestParam(value = "pageNum") int pageNum,
+            @RequestParam(value = "pageNumber") int pageNumber,
             @RequestParam(value = "pageSize") int pageSize,
             @RequestParam(value = "sortBy") String sortBy,
-            @RequestParam(value = "sortDirection") String sortDirection
+            @RequestParam(value = "order") String order
     );
 
     @GetMapping("/card/page")
     ProductCardPage getProductCardDtoByCategoryOrOwnerIdPageable(
             @RequestParam(value = "ownerId") UUID ownerId,
             @RequestParam(value = "categoryId") Long categoryId,
-            @RequestParam(value = "pageNum") int pageNum,
+            @RequestParam(value = "pageNumber") int pageNumber,
             @RequestParam(value = "pageSize") int pageSize,
             @RequestParam(value = "sortBy") String sortBy,
-            @RequestParam(value = "sortDirection") String sortDirection
+            @RequestParam(value = "order") String order
     );
 }
