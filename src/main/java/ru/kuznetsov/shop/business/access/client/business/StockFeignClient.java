@@ -45,5 +45,5 @@ public interface StockFeignClient extends AbstractFeignClient<StockDto> {
     Collection<StockDto> createBatch(Collection<StockDto> entities);
 
     @GetMapping("/reservation")
-    Collection<StockDto> getAllByReservationOrderId(@RequestParam(value = "orderId") Long orderId);
+    Collection<StockDto> getAllByReservationOrderId(@RequestParam(value = "reservationOrderId") Long reservationOrderId);
 }
